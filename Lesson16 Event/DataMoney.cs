@@ -8,18 +8,18 @@ namespace Lesson16_Event {
     public class DataMoney {
         public event Action<float> GoOnTransaction;
         public float Money { get; private set; }
-        public void Transaction(float price) {
+        public bool Transaction(float price) {
             
             if(price <= Money) { 
                 Money = Money - price;
                 //если несделать проверку через операто "?" то будет ошибка без подписки 
                 GoOnTransaction?.Invoke(Money);
                 Console.WriteLine(Money);
-            } else { Console.WriteLine("Недостаточно стредсв"); }
+                return true;
+            } else { Console.WriteLine("Недостаточно стредсв"); return false; }
         }
-        public void TransactionReg(float money) {
-            
-            GoOnTransaction?.Invoke(Money = money);
-        }
+        public void Replenishment(float money) => GoOnTransaction?.Invoke(Money = money);
+        
+       
     }
 }

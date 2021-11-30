@@ -11,20 +11,28 @@ namespace Lesson16_Event {
         }
         public string Name { get; private set; }
 
-        public List<Product> products = new List<Product>() {
+        public List<Product> Products = new List<Product>() {
             new Product ("сахар",100),
             new Product ("Хлеб",50),
             new Product ("Соль",10)
         };
-        public Product Search(string name) {
+        public void Search(string name) {
             
-            var a = products.Where(products => products.NameProduct.ToLower() ==  name.ToLower());
+            var a = Products.Where(products => products.NameProduct.ToLower() ==  name.ToLower());
             foreach(var item in a) {
                 Console.WriteLine(item);
             }
-            
-            return products[0];
         }
-
+        public void Purchase(Person person, Bank bank) {
+            var str = "хлеб";
+            var prod = Products.Where(products => products.NameProduct.ToLower() == str.ToLower());
+            foreach(var item in prod) {
+                if(bank.Transaction(item.Price, person))
+                    person.PurchasedProduct.Add(item);
+            }
+           // bank.Transaction(500,person);
+            
+            
+        }
     }
 }

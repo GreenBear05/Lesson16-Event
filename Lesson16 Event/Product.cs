@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lesson16_Event {
-    internal class Product {
+    public class Product {
         public Product(string name, float  price) {
             NameProduct = name;
             Price = price;

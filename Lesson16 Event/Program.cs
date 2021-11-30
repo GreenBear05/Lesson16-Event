@@ -7,24 +7,20 @@ namespace Lesson16_Event {
             var shop = new Shop("sportmaster");
             var bank = new Bank("sberbank");
             string a = "Хлеб";
-            var pr = shop.Search(a);
+            shop.Search(a);
             
-            int id = 1;
-            int id2 = 2;
             var listperson = new List<Person> {
-                new Person(id, 5000) { Name = "Sergay" },
-                new Person(id2, 9000) { Name = "Irna" }
+                new Person(5000) { Name = "Sergay"},
+                new Person(10000) { Name = "Irna" }
             };
 
             bank.RegPerson(listperson[0]);
             bank.RegPerson(listperson[1]);
+            
+            shop.Purchase(listperson[1], bank);
+            
 
-            bank.Transaction(5000, listperson[0]);
-            bank.Transaction(5000, listperson[1]);
-            bank.Transaction(500, listperson[1]);
-            //listperson[1].Transaction(500, bank);
-
-            Console.WriteLine(listperson[0].Money);
+            Console.WriteLine(listperson[1].PurchasedProduct[0]);
             Console.ReadKey();
         }
         #region MyRegion
