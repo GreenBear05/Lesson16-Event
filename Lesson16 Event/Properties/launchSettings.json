@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Lesson16 Event": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
+    }
+  }
+}
