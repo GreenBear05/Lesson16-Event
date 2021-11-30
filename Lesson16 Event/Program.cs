@@ -21,8 +21,9 @@ namespace Lesson16_Event {
 
             bank.Transaction(5000, listperson[0]);
             bank.Transaction(5000, listperson[1]);
+            bank.Transaction(500, listperson[1]);
             //listperson[1].Transaction(500, bank);
-             
+
             Console.WriteLine(listperson[0].Money);
             Console.ReadKey();
         }
