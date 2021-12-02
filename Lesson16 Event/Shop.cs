@@ -23,8 +23,11 @@ namespace Lesson16_Event {
                 Console.WriteLine(item);
             }
         }
-        public void Purchase(Person person, Bank bank) {
-            var str = "хлеб";
+        public void infoProducts() {
+            foreach(var item in Products) { Console.WriteLine(item); }
+        }
+        public void Purchase(Person person, Bank bank,string str) {
+            // var str = "хлеб";
             var prod = Products.Where(products => products.NameProduct.ToLower() == str.ToLower());
             foreach(var item in prod) {
                 if(bank.Transaction(item.Price, person))

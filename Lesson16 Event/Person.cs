@@ -8,7 +8,7 @@ namespace Lesson16_Event {
     public class Person {
 
         
-        public Person(int money) {Money = money;  }
+        public Person() { }
         
         public List<Product> PurchasedProduct = new List<Product>();
         public Bank bank;

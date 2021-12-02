@@ -6,21 +6,26 @@ namespace Lesson16_Event {
         static void Main(string[] args) {
             var shop = new Shop("sportmaster");
             var bank = new Bank("sberbank");
-            string a = "Хлеб";
-            shop.Search(a);
             
+            // создание персонажей 
             var listperson = new List<Person> {
-                new Person(5000) { Name = "Sergay"},
-                new Person(10000) { Name = "Irna" }
+                new Person() { Name = "Sergay"},
+                new Person() { Name = "Irna" }
             };
-
+            Console.WriteLine("Регистрация персонажа Банк");
             bank.RegPerson(listperson[0]);
             bank.RegPerson(listperson[1]);
-            
-            shop.Purchase(listperson[1], bank);
-            
 
-            Console.WriteLine(listperson[1].PurchasedProduct[0]);
+            Console.WriteLine("Введите предмет из списка предмет");
+            shop.infoProducts();
+            var str = Console.ReadLine();
+            shop.Purchase(listperson[1], bank, str);
+
+            Console.WriteLine("Предметы персонажа");
+            foreach(var item in listperson[1].PurchasedProduct) {
+                Console.WriteLine(item) ;
+            }
+            
             Console.ReadKey();
         }
         #region MyRegion

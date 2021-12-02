@@ -14,10 +14,11 @@ namespace Lesson16_Event {
         public Dictionary<int, DataMoney> dataMoney { get; private set; }
 
         public void RegPerson(Person person) {
+            
             person.AddId(IdPerson++);
             dataMoney.Add(person.Id, new DataMoney());
             dataMoney[person.Id].GoOnTransaction += person.TransactionConfirmation;
-            dataMoney[person.Id].Replenishment(person.Money);
+            dataMoney[person.Id].Replenishment();
             
         }
         public bool Transaction(float price, Person person) => dataMoney[person.Id].Transaction(price);

@@ -18,7 +18,9 @@ namespace Lesson16_Event {
                 return true;
             } else { Console.WriteLine("Недостаточно стредсв"); return false; }
         }
-        public void Replenishment(float money) => GoOnTransaction?.Invoke(Money = money);
+
+        float Basemoney = 5000;
+        public void Replenishment() => GoOnTransaction?.Invoke(Money = 5000);
         
        
     }
