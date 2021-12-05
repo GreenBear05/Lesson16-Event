@@ -10,7 +10,7 @@ namespace Lesson16_Event {
         public Bank(string nameBank) { NameBank = nameBank; IdPerson = 0; dataMoney = new Dictionary<int, DataMoney>(); }
         public string NameBank { get; }
         public int IdPerson { get; private set; }
-       
+        
         public Dictionary<int, DataMoney> dataMoney { get; private set; }
 
         public void RegPerson(Person person) {

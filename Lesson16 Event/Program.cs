@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 
 namespace Lesson16_Event {
-    internal class Program {
+    public class Program {
         static void Main(string[] args) {
             var shop = new Shop("sportmaster");
             var bank = new Bank("sberbank");
-            
             // создание персонажей 
             var listperson = new List<Person> {
                 new Person() { Name = "Sergay"},
@@ -15,17 +14,16 @@ namespace Lesson16_Event {
             Console.WriteLine("Регистрация персонажа Банк");
             bank.RegPerson(listperson[0]);
             bank.RegPerson(listperson[1]);
-
+            Console.WriteLine("Деньги персонажа " + listperson[1].Money);
             Console.WriteLine("Введите предмет из списка предмет");
             shop.infoProducts();
             var str = Console.ReadLine();
             shop.Purchase(listperson[1], bank, str);
-
             Console.WriteLine("Предметы персонажа");
             foreach(var item in listperson[1].PurchasedProduct) {
-                Console.WriteLine(item) ;
+                Console.WriteLine(item);
             }
-            
+            Console.WriteLine();
             Console.ReadKey();
         }
         #region MyRegion
